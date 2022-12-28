@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root id="border-root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="626.0" minWidth="912.0" prefHeight="626.0" prefWidth="912.0" stylesheets="@MusicPlayerView2.css" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+	<center>
+		<SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+			<items>
+				<VBox fx:id="vboxMenus" prefHeight="619.0" prefWidth="303.0" style="-fx-background-color: white;">
+					<children>
+						<SplitPane orientation="VERTICAL" VBox.vgrow="ALWAYS">
+							<items>
+								<VBox prefHeight="239.0" prefWidth="262.0" spacing="3.0">
+									<children>
+      								<VBox maxHeight="56.0" spacing="3.0">
+      									<children>
+      										<Label fx:id="lblMyPlayList" text="나의 재생 목록" VBox.vgrow="NEVER" />
+                                    <HBox fillHeight="false" spacing="4.0" VBox.vgrow="NEVER">
+                                       <children>
+            										<ComboBox fx:id="cbPlayList" editable="true" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#btnPlayListAddOnAction" prefWidth="50.0" styleClass="gargoyle-music-button" text="신규" />
+                                       </children>
+                                    </HBox>
+                                    <Label text="가고일 Music URL" />
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="txtGargoyleMusicURL" maxWidth="1.7976931348623157E308" onKeyPressed="#txtGargoyleMusicURLOnKeyPressd" promptText="http://host:port" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+      									</children>
+      									<padding>
+      										<Insets bottom="3.0" left="3.0" top="3.0" />
+      									</padding>
+      								</VBox>
+										<HBox id="vbox-music-lib" alignment="CENTER">
+											<children>
+      										<Label id="lbl-music-note-list" fx:id="lblMusicList" text="음악 목록" />
+												<Label id="txt-image-dir" fx:id="txtInfo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false" HBox.hgrow="ALWAYS" />
+												<Button fx:id="btnSrch" minWidth="50.0" mnemonicParsing="false" onAction="#btnSrchOnAction" prefWidth="50.0" styleClass="gargoyle-music-button" text="검색" />
+											</children>
+										</HBox>
+										<ListView fx:id="lvMusic" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="lvLyric" VBox.vgrow="ALWAYS" />
+                              <Label fx:id="lblLyric" maxWidth="1.7976931348623157E308" prefHeight="92.0" style="-fx-alignment: CENTER;" VBox.vgrow="NEVER" />
+									</children>
+									<padding>
+										<Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+									</padding>
+								</VBox>
+							</items>
+						</SplitPane>
+					</children>
+				</VBox>
+				<HBox alignment="CENTER" onContextMenuRequested="#onPropertiesContextRequest" prefHeight="571.0" prefWidth="164.0">
+					<children>
+						<VBox alignment="CENTER">
+							<children>
+								<VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+									<children>
+                              <StackPane fx:id="st">
+                                 <children>
+      										<ImageView fx:id="iv" cache="true" fitHeight="400.0" fitWidth="400.0" onMouseClicked="#pauseOnAction" preserveRatio="true" />
+                                 </children>
+                              </StackPane>
+									</children>
+								</VBox>
+								<VBox alignment="CENTER" VBox.vgrow="NEVER">
+									<children>
+										<Label fx:id="lblTitle" style="-fx-font-size: 30px;" text="Title" />
+										<Label fx:id="lblDesc" style="-fx-font-size: 15px;" text="Desc" />
+										<HBox alignment="CENTER" spacing="5.0" VBox.vgrow="NEVER">
+											<children>
+												<ImageView fx:id="ivPrev" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#btnPrevOnAction" preserveRatio="true" HBox.hgrow="NEVER">
+													<image>
+														<Image url="@prev.png" />
+													</image>
+													<cursor>
+														<Cursor fx:constant="HAND" />
+													</cursor>
+												</ImageView>
+												<ImageView fx:id="ivPlay" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#btnPlayOnClick" preserveRatio="true">
+													<image>
+														<Image url="@Play.png" />
+													</image>
+													<cursor>
+														<Cursor fx:constant="HAND" />
+													</cursor>
+												</ImageView>
+												<ImageView fx:id="ivNext" fitHeight="150.0" fitWidth="100.0" onMouseClicked="#btnNextOnAction" preserveRatio="true" HBox.hgrow="NEVER">
+													<image>
+														<Image url="@next.png" />
+													</image>
+													<cursor>
+														<Cursor fx:constant="HAND" />
+													</cursor>
+												</ImageView>
+											</children>
+										</HBox>
+									</children>
+								</VBox>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+			</items>
+		</SplitPane>
+	</center>
+   <bottom>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox spacing="5.0">
+               <children>
+                  <AnchorPane HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblTime" contentDisplay="CENTER" prefHeight="15.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" />
+                        <Label fx:id="lblTotalTime" alignment="CENTER" contentDisplay="CENTER" layoutX="65.0" prefHeight="15.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Slider fx:id="slProgress" max="10000.0" />
+         </children>
+      </VBox>
+   </bottom>
+   <right>
+      <Slider fx:id="slVolumn" blockIncrement="0.1" majorTickUnit="0.1" max="1.0" maxHeight="100.0" minHeight="100.0" minorTickCount="5" orientation="VERTICAL" prefHeight="100.0" value="0.3" BorderPane.alignment="CENTER" />
+   </right>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tools">
+               <items>
+                  <Menu mnemonicParsing="false" text="Download">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="GoogleDrive" 
+                      onAction="#googleDriverOnAction"
+                      />
+                    </items>
+                  </Menu>
+               </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</fx:root>

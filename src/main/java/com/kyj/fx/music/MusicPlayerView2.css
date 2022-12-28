@@ -1,0 +1,88 @@
+.root {
+	-fx-background-color: white;
+}
+
+
+VBox {
+	-fx-border-color: white;
+}
+
+SplitPane {
+	-fx-border-color: white;
+	-fx-background-color: white;
+}
+
+ComboBox {
+	-fx-background-color: white;
+	-fx-border-color: black;
+	-fx-border-width : 0.5px;
+}
+
+.gargoyle-music-button
+{
+	-fx-background-color : white;
+	-fx-border-width : 0.5px;
+	-fx-border-color : black;
+	-fx-text-fill : black;
+}
+
+CheckBox .box
+{
+	-fx-background-color : white;
+	-fx-border-width : 0.5px;
+	-fx-border-color : black;
+}
+.gargoyle-music-button:hover
+{
+	-fx-background-color : #FFDEDE;
+}
+
+.split-pane-divider {
+	-fx-border-color: white;
+	-fx-padding: 0.0px 0.1px 0.0px 0.1px
+}
+
+.commbo-box .list-cell:selected:empty {
+	-fx-background-color: white;
+}
+
+.commbo-box .arrow-button {
+	-visibility: false;
+}
+
+#border-root{
+	-fx-background-color : white;
+	-fx-padding : 0.0px 10.0px 10.0px 3.0px;
+}
+#txt-image-dir {
+	-fx-border-color: black;
+	-fx-border-width : 0.5px;
+	-fx-padding: 1.0px 2.0px 1.0px 1.0px;
+}
+
+#vbox-music-lib {
+	-fx-spacing: 2.0px;
+}
+
+#lbl-music-note-list {
+
+}
+
+#lvLyric .list-cell:even{
+	-fx-background-color : white;
+}
+#lvLyric .list-cell:odd{
+	-fx-background-color : white;
+}
+#lvLyric .list-cell:selected{
+	-fx-background-color : #FFDEDE;
+	-fx-text-fill:black;
+}
+
+
+.list-cell:selected {
+	-fx-background-color : transparent;
+	-fx-border-color : black;
+	-fx-text-fill:black;
+	-fx-font-size : 14px;
+}

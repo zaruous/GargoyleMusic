@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>MediaPlayer</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<listener>
+		<listener-class>com.kyj.fx.musicserver.ContextInitializer</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>basePath</param-name>
+		<param-value>C:\Users\KYJ\Music\해오라기</param-value>
+	</context-param>
+
+
+	<filter>
+		<filter-name>Encoding Filter</filter-name>
+		<filter-class>com.kyj.fx.musicserver.CommonEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Encoding Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+	<servlet>
+		<servlet-name>fileServlet</servlet-name>
+		<servlet-class>com.kyj.fx.musicserver.FileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>listFilesServlet</servlet-name>
+		<servlet-class>com.kyj.fx.musicserver.ListFilesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>getFileServlet</servlet-name>
+		<servlet-class>com.kyj.fx.musicserver.GetMuicFullyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>listFilesServlet</servlet-name>
+		<url-pattern>/listFiles/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>fileServlet</servlet-name>
+		<url-pattern>/files/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>getFileServlet</servlet-name>
+		<url-pattern>/getFile</url-pattern>
+	</servlet-mapping>
+
+</web-app>
